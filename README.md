@@ -1,6 +1,6 @@
 # Event Tickets API
 
-Spring Boot 3.5 / Java 21 / Gradle 8.14 (Kotlin DSL) / H2 in-memory. Design, rules, and scenarios: [docs/DESIGN.md](docs/DESIGN.md).
+Spring Boot 3.5 / Java 21 / Gradle 8.14 (Kotlin DSL) / H2 in-memory. Design, rules, and scenarios: [docs/DESIGN.md](docs/DESIGN.md). Defense slides: [docs/Event-Tickets-API-Defense.pptx](docs/Event-Tickets-API-Defense.pptx).
 
 ## Run
 
