@@ -88,3 +88,14 @@ WHERE e.id = :id AND e.seatsLeft >= :q AND e.status = 'ACTIVE'
 ```
 
 Check and write happen atomically under the DB row lock. 0 rows updated means 404 / 409, decided by reloading the event. `ConcurrentBookingTest` fires 10 parallel requests at 1 seat: exactly 1 × 201, 9 × 409, seatsLeft 0.
+
+## AI workflow
+
+Built with [Claude Code](https://claude.com/claude-code), spec first:
+
+1. Homework and the 6 business rules given to Claude Code.
+2. Claude Code wrote [docs/DESIGN.md](docs/DESIGN.md) (rules, order of checks, atomic `UPDATE`); reviewed before any code.
+3. Claude Code wrote the code and tests from that design.
+4. Every change verified with `./gradlew test` and a diff review before commit.
+
+Claude Code also wrote the README, Swagger setup, and defense slides. Every commit carries a `Co-Authored-By: Claude` trailer. Details: slides 12–13 of the defense deck.
