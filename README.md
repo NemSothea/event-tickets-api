@@ -10,6 +10,8 @@ Spring Boot 3.5 / Java 21 / Gradle 8.14 (Kotlin DSL) / H2 in-memory. Design, rul
 ./gradlew bootJar           # build/libs/event-tickets-api-0.0.1-SNAPSHOT.jar
 ```
 
+Port 8080 already taken (e.g. by Jenkins)? Run on another port: `./gradlew bootRun --args='--server.port=8081'`, and use that port in the URLs below.
+
 Gradle 8.14 runs on JDK 17–24. If `JAVA_HOME` points to a newer JDK, set it to Java 21 first, e.g. `export JAVA_HOME=/opt/homebrew/opt/openjdk@21`.
 
 **Demo users (HTTP Basic):** `alice`/`password`, `bob`/`password` (CUSTOMER), `admin`/`password` (ADMIN).
@@ -28,7 +30,11 @@ Gradle 8.14 runs on JDK 17–24. If `JAVA_HOME` points to a newer JDK, set it to
 | GET  | /api/bookings/{id} | owner |
 | POST | /api/bookings/{id}/cancel | owner |
 
-Errors are RFC 7807 `ProblemDetail` JSON.
+Errors are RFC 7807 `ProblemDetail` JSON. There is no page at `/`, so opening the root URL returns a 404.
+
+## Swagger UI
+
+Browse and try every endpoint at http://localhost:8080/swagger-ui.html (OpenAPI JSON: `/v3/api-docs`). Both are public. For protected endpoints, click **Authorize** and log in with one of the demo users above.
 
 ## curl examples, one per rule
 
